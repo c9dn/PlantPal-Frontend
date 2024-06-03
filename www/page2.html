@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://1334-2600-1700-4540-10a0-f52c-5b48-6aea-e093.ngrok-free.app; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src *;">
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <title>PlantPal</title>
+
+    <!----FONTS----->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+
+    <!-- Franken UI !-->
+    <link rel="stylesheet" href="https://unpkg.com/franken-ui-releases@0.0.12/dist/default.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit-icons.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <div class="content">
+        <form id="emailForm">
+            <h1 style="font-weight: 800; font-size: 40px; padding-top:60%; font-style: normal;">What's your email?</h1>
+
+            <div style="padding-top:20%;">
+                <input name="email_add" id="email" class="uk-input" style="height:50px; width:80%; font-size: 20px;"
+                    type="email" placeholder="Email Address" required>
+                <div style="padding-top:20%;">
+                    <button type="submit" class="uk-button uk-button-primary button-class">Continue</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+                
+
+        document.getElementById('emailForm').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const email = document.getElementById('email').value;
+            const formData = new FormData();
+            formData.append('email_add', email);
+
+            if(email == "shlok@myyahoo.com"){
+                window.localStorage.setItem('specialFriend', 0.01);
+                window.location.href = 'page3.html';
+            } else {
+                window.localStorage.setItem('specialFriend', 0.02);
+            }
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://7c04-2001-ac8-8b-5001-00-6b56.ngrok-free.app/hack_bronx_api/v0/authentication/authenticate/');
+
+            // Set headers if necessary (consider for content type)
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Example header for form data
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText);
+                    alert("Data received: " + JSON.stringify(data));  // Do something with the data
+                    window.location.href = 'page3.html';
+                } else {
+                    alert("error1: " + error)  // Handle errors
+                }
+            };
+
+            xhr.onerror = function (error) {
+                window.location.href = 'page3.html';
+            };
+
+            xhr.send(formData);
+
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+
+    <link href="css/style1.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <title>PlantPal</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha512-Rksm6iMbXkfuHJABqqEo49+enQ1zLTOScGzdaY6Byh0iReuLTSDuYv5tewr+tCb9iS0FlZlUjU5PcIzX5E1S5Q==" crossorigin=""/>
+    <style>
+        #map {
+            height: 206px; /* Adjust the height as needed */
+            width: 288px; /* Adjust the width as needed */
+            border: 2px solid black; /* Black outline */
+            border-radius: 15px; /* Rounded corners */
+            overflow: hidden; /* Ensures the map corners are rounded */
+        }
+    </style>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/franken-ui-releases@0.0.12/dist/default.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit-icons.min.js"></script>
+    <script src="script.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        .top-left, .top-right, .bottom-center {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px; /* Increased padding for bigger divs */
+            border-radius: 5px;
+            z-index: 1000; /* Ensure divs are above the map */
+            font-size: 1.2em; /* Increase font size */
+        }
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+        .top-right {
+            top: 10px;
+            right: 10px;
+        }
+        .bottom-center {
+            bottom: 30px; /* Move the div up by increasing bottom margin */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .leaflet-right .leaflet-control {
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+    <h1 style="font-weight: 800;
+              font-size: 40px;
+              padding-top:30%;
+              font-style: normal;">USA Leaderboard 🇺🇸</h1>
+    <ol>
+        <li>1. Gale Ranch</li>
+        <li>2. --------</li>
+        <li>3. --------</li>
+        <li>4. --------</li>
+        <li>5. --------</li>
+        <li>6. --------</li>
+        <li>7. --------</li>
+        <li>8. --------</li><li>9. --------</li>
+        <li>10. --------</li>
+    </ol>
+
+    <button
+  class="uk-button uk-button-primary"
+  type="button"
+  uk-toggle="target: #modal-example">Show lifetime Stats</button>
+    </div>
+
+
+
+    <div class="bottom-center">
+        <a href="page7.html">
+        <img style="width:45px !important;height:45px !important;" src="content/v3/1.png" alt="Image 1">
+        </a>
+  
+        <img id="openWebsiteButton" style="width:45px !important;height:45px !important;" src="content/v3/2.png" alt="Image 2">
+    
+        
+        <img style="width:45px !important;height:45px !important;" src="content/v3/3.png" alt="Image 3">
+
+    </div>
+    <div id="modal-example" uk-modal>
+        <div class="uk-modal-body uk-modal-dialog" style="margin-top:20%!important;">
+          <h2 class="uk-modal-title">Lifetime Stats</h2>
+          <p>
+            Gale Ranch, San Ramon, CA
+            <br>
+            <br>
+            <b>Number of Trees Planted:</b> 1
+            <br>
+            <b>Number of Coins Earned:</b> 2
+            <br>
+            <b>Number of Community Members:</b> 2
+
+          </p>
+          <p class="uk-text-right" style="padding-top:10%!important;">
+            <button class="uk-modal-close uk-button uk-button-primary" type="button">
+              Close
+            </button>
+           
+          </p>
+        </div>
+      </div>
+    <!-- Leaflet JavaScript -->
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

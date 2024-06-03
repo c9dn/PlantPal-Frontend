@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.example.hello" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>PlantPal</name>
+    <icon src="appIcon.png" />
+    <description>Building Community Relations</description>
+    <author email="shlokmadhekar88@gmail.com" href="mailto:shlokmadhekar88@gmail.com">
+        PlantPal Team
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <preference name="AndroidBlacklistSecureSocketProtocols" value="SSLv3,TLSv1" />
+    <access origin="*"/>
+    <allow-navigation href="http://www.openstreetmap.org/*" />
+    <allow-navigation href="https://apis.google.com/*" />
+    <allow-navigation href="*"/>
+    <allow-navigation href="https://clients6.google.com/*" />
+
+    <!-- Example permissions -->
+    <plugin name="cordova-plugin-geolocation" source="npm" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="permissions" value="geo_location"/>
+    
+    <platform name="ios">
+        <config-file platform="ios" target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>Need camera access to take photos</string>
+        </config-file>
+        <config-file platform="ios" target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
+            <string>Need location access to find your position</string>
+        </config-file>
+    </platform>
+</widget>
